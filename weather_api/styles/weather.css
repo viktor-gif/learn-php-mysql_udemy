@@ -1,0 +1,17 @@
+.main {
+    text-align: center;
+    margin-top: 10%;
+}
+
+div:last-child {
+    margin-top: 10px;
+}
+
+.alert {
+    background-color: antiquewhite;
+    width: 40%;
+    text-align: left;
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px;
+}
