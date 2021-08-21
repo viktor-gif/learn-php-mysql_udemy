@@ -1,5 +1,6 @@
 <?php
 
-    echo 'Hello from anothe file';
+    echo 'Hello from anothe file<br>';
+    echo 'test';
 
 ?>
