@@ -1,25 +1,26 @@
 <?php
     if (isset($_POST['submit'])) {
+        $name = $_POST['name'];
         $email = $_POST['email'];
         $password = $_POST['password'];
-        echo $email.'<br>';
-        echo $password;
+
+        // echo $email.'<br>';
+        // echo $password;
 
         $connection = mysqli_connect('localhost', 'root', '', 'udemy_db');
 
-        $query = 'SELECT * FROM `users`;';
-
         if ($connection) {
-            $query_result = mysqli_query($connection, $query);
-            if ($query_result) {
-                $data_array = mysqli_fetch_array($query_result);
-                print_r($data_array);
-                echo '<br><br>Hello, '.$data_array['name'].
-                    '. <br> Your email is: '.$data_array['email'].
-                    '. <br> Your password is: '.$data_array['password'];
-            }
+            echo 'Database is connected';
         } else {
             die('Connection failed');
+        }
+
+        $query = "INSERT INTO `users` (`name`, `email`, `password`) 
+            values ('$name', '$email', '$password');";
+        $query_result = mysqli_query($connection, $query);
+
+        if (!$query_result) {
+            die("Query failed ");
         }
     }
 ?>
@@ -36,6 +37,10 @@
 <body>
     <main>
         <form class="login-form" action="login.php" method="post">
+        <div class="name">
+                <label for="name">name</label>
+                <input id="name" name="name" type="text">
+            </div>
             <div class="email">
                 <label for="email">email address</label>
                 <input id="email" name="email" type="text">
