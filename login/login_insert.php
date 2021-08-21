@@ -36,7 +36,7 @@
 </head>
 <body>
     <main>
-        <form class="login-form" action="login.php" method="post">
+        <form class="login-form" action="login_insert.php" method="post">
         <div class="name">
                 <label for="name">name</label>
                 <input id="name" name="name" type="text">
