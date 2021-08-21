@@ -6,8 +6,18 @@
         echo $password;
 
         $connection = mysqli_connect('localhost', 'root', '', 'udemy_db');
+
+        $query = 'SELECT * FROM `users`;';
+
         if ($connection) {
-            echo 'DB is connected';
+            $query_result = mysqli_query($connection, $query);
+            if ($query_result) {
+                $data_array = mysqli_fetch_array($query_result);
+                print_r($data_array);
+                echo '<br><br>Hello, '.$data_array['name'].
+                    '. <br> Your email is: '.$data_array['email'].
+                    '. <br> Your password is: '.$data_array['password'];
+            }
         } else {
             die('Connection failed');
         }
