@@ -7,13 +7,7 @@
         // echo $email.'<br>';
         // echo $password;
 
-        $connection = mysqli_connect('localhost', 'root', '', 'udemy_db');
-
-        if ($connection) {
-            echo 'Database is connected';
-        } else {
-            die('Connection failed');
-        }
+        include "db_connection.php";
 
         $query = "INSERT INTO `users` (`name`, `email`, `password`) 
             values ('$name', '$email', '$password');";

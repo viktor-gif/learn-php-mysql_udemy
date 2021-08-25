@@ -1,21 +1,14 @@
 <?php
     
+    include "db_connection.php";
 
-        $connection = mysqli_connect('localhost', 'root', '', 'udemy_db');
+    $query = "SELECT * FROM `users`;";
 
-        if ($connection) {
-            echo 'Database is connected';
-        } else {
-            die('Connection failed');
-        }
+    $query_result = mysqli_query($connection, $query);
 
-        $query = "SELECT * FROM `users`;";
-
-        $query_result = mysqli_query($connection, $query);
-
-        if (!$query_result) {
-            die("Query failed ".mysqli_error($connection));
-        }
+    if (!$query_result) {
+        die("Query failed ".mysqli_error($connection));
+    }
     
 ?>
 
