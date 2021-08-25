@@ -10,7 +10,7 @@
         include "db_connection.php";
 
         $query = "INSERT INTO `users` (`name`, `email`, `password`) 
-            values ('$name', '$email', '$password');";
+            VALUES ('$name', '$email', '$password');";
         $query_result = mysqli_query($connection, $query);
 
         if (!$query_result) {
