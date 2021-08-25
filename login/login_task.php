@@ -11,9 +11,13 @@
         if (!$_POST['email'] OR !$_POST['password']) {
             echo 'You must input email and password';
         } else {
-            $name = $_POST['name'];
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+            $name = mysqli_real_escape_string($connection,
+                $_POST['name']);
+            $email = mysqli_real_escape_string($connection,
+                $_POST['email']);
+            $password = mysqli_real_escape_string($connection,
+                $_POST['password']);
+            $password = password_hash($password, PASSWORD_DEFAULT);
 
             $select_query = "SELECT * FROM `users` WHERE `email` = '$email'";
             $select_query_result = mysqli_query($connection, $select_query);
