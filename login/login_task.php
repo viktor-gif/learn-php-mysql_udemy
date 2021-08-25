@@ -1,4 +1,9 @@
 <?php
+
+    session_start();
+
+    echo $_SESSION['name'];
+
     include "db_connection.php";
 
     if (isset($_POST['submit'])) {
@@ -22,6 +27,8 @@
                 if (!$query_result) {
                     die("Query failed ");
                 } else {
+                    $_SESSION['email'] = $email;
+                    header("Location: session_and_cookies.php");
                     echo 'You are signed up';
                 }
             }
